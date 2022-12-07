@@ -1,8 +1,6 @@
-%define debug_package %{nil}
-
 Name:           nethogs
 Version:        0.8.6
-Release:        1
+Release:        2
 Summary:        Nethogs is a small 'net top' tool
 License:        GPLv2+
 URL:            https://github.com/raboof/nethogs/
@@ -20,6 +18,7 @@ ddenly taking up your bandwidth.
 %autosetup -n %{name}-%{version} -p1
 
 %build
+export CFLAGS="${RPM_OPT_FLAGS}"
 %make_build
 
 %install
@@ -35,5 +34,8 @@ ddenly taking up your bandwidth.
 %{_mandir}/../../local/share/man/man8/nethogs.8*
 
 %changelog
+* Tue Aug 23 2022 wulei <wulei80@h-partners.com> 0.8.6-2
+- Fix binary /usr/local/sbin/nethogs not striped problem
+
 * Wed Nov 4 2020 zengwefeng<zwfeng@huawei.com> - 0.8.6-1
 - Package init
