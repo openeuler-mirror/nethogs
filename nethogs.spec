@@ -1,10 +1,11 @@
 Name:           nethogs
 Version:        0.8.6
-Release:        2
+Release:        3
 Summary:        Nethogs is a small 'net top' tool
 License:        GPLv2+
 URL:            https://github.com/raboof/nethogs/
 Source0:        https://github.com/raboof/nethogs/archive/v%{version}.tar.gz
+Patch0:         fix-clang-compile-error.patch
 
 BuildRequires:  gcc-c++ libpcap-devel ncurses-devel
 
@@ -34,6 +35,9 @@ export CFLAGS="${RPM_OPT_FLAGS}"
 %{_mandir}/../../local/share/man/man8/nethogs.8*
 
 %changelog
+* Sat Apr 29 2023 yoo <sunyuechi@iscas.ac.cn> - 0.8-3
+- fix clang compile error
+
 * Tue Aug 23 2022 wulei <wulei80@h-partners.com> 0.8.6-2
 - Fix binary /usr/local/sbin/nethogs not striped problem
 
